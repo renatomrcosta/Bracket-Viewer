@@ -19,14 +19,19 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.github.wimdeblauwe:htmx-spring-boot:4.0.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    // adds the necessary dependencies to Tomcat servlets to behave non-blocking / suspending
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+    // Convenience Extension functions to deal with JDK8 futures
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8")
+
+//    implementation("io.github.wimdeblauwe:htmx-spring-boot:4.0.1")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
